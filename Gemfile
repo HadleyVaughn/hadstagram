@@ -4,11 +4,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 
+
+# changed this to development and production groups with two different databases
+# so we can use Postgres Database at heroku, because that's what it knows! 
 group :development do
- # Use sqlite3 as the database for Active Record
+ # Use sqlite3 as the database for Active Record in Development
  gem 'sqlite3'
 end 
 group :production do
+  #We use Postgres in Production! 
   gem 'pg'
   gem 'rails_12factor'
   
