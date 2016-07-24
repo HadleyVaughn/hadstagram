@@ -9,6 +9,12 @@
   <strong>Description:</strong>
   <%= @topic.description %>
 </p>
+<div class= "topic-image">
+            <% if @topic.image? %>
+                <%= link_to (image_tag @topic.image.url(:medium), class:'img-responsive'), topic_path(@topic) %>
+              <%#= image_tag @topic.image.url(:medium) %>
+            <% end %>
+          </div>    
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

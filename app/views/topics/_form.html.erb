@@ -1,4 +1,5 @@
-<%= form_for(@topic) do |f| %>
+<%#= form_for(@topic) do |f| %>
+<%= form_for(@topic, html: {multipart: true, image:true, class:"form-group" }) do |f| %>
   <% if @topic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
@@ -19,6 +20,10 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+   <div class="field">
+        <%= f.label :image, class:"col-sm-3" %>
+        <%= f.file_field :image,  class:"col-sm-9" %>
+    </div>   
   <div class="actions">
     <%= f.submit %>
   </div>
